@@ -1,6 +1,7 @@
 # varta-exporter
 
-![Docker Pulls](https://img.shields.io/docker/pulls/hypery2k/varta-exporter)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hypery2k/varta-exporter)](https://hub.docker.com/r/hypery2k/varta-exporter/)
+[![Docker Stars](https://img.shields.io/docker/stars/hypery2k/varta-exporter.svg)](https://hub.docker.com/r/hypery2k/varta-exporter/)
 
 Read values from various VARTA batteries and provide es prometheus exporter metrics
 
