@@ -28,8 +28,20 @@ jobs:
       - name: Install dependencies
         id: install-deps
         run: |
-          cd app
-          pip3 install -r requirements.txt
+          (cd app && pip3 install -r requirements.txt)
+          (cd test && pip3 install -r requirements.txt)
+
+      - name: Test
+        id: run-tests
+        run: |
+          cd test
+          pytest
+
+  Container:
+    name: Build Container Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Write version vars
         id: version-vars
@@ -42,11 +54,6 @@ jobs:
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
           echo "BUILD_DATE=$BUILD_DATE" >> $GITHUB_ENV
 
-  Container:
-    name: Build Container Image
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
       - name: Build image
         id: build-image
         uses: redhat-actions/buildah-build@v2
