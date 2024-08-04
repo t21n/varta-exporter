@@ -51,14 +51,14 @@ jobs:
         id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
-          image: hypery2k/varta-exporter
+          image: tools4homeautomation/varta-exporter
           tags: 'latest next ${{env.APP_VERSION}} ${{env.APP_VERSION}}_rc'
           containerfiles: |
             ./Dockerfile
           build-args: |
             BUILD_DATE=${{env.BUILD_DATE}}
             APP_VERSION=${{env.APP_VERSION}}
-            
+
       - name: Push To Docker Hub
         id: push-to-dockerhub-preview
         uses: redhat-actions/push-to-registry@v2
