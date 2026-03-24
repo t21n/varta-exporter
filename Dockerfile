@@ -1,4 +1,4 @@
-FROM python:3.12.13-alpine
+FROM python:3.14.3-alpine
 
 ARG BUILD_DATE
 ARG APP_VERSION
