@@ -70,3 +70,8 @@ jobs:
                     tag_name: v${{ github.event.inputs.releaseversion }}
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            -   name: Push changes
+                run: |
+                    git tag v${{ github.event.inputs.releaseversion }}
+                    git push --tags
