@@ -61,6 +61,7 @@ jobs:
           VERSION=$APP_VERSION
           APP_VERSION=$APP_VERSION
           BUILD_DATE=$BUILD_DATE
+          SOURCE_TAG=$SOURCE_TAG
           EOM
 
       - name: Set up Docker Buildx
@@ -114,7 +115,7 @@ jobs:
             ${{env.DOCKER_IMAGE_NAME}}:${{env.BRANCH}}
           build-args: |
             BUILD_DATE=${{env.BUILD_DATE}}
-            APP_VERSION=${{env.BRANCH}}
+            APP_VERSION=${{env.APP_VERSION}}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
         if: github.ref_type == 'tag' || github.tag != ''
 
