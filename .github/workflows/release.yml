@@ -46,7 +46,7 @@ jobs:
 
             -   name: Set release version
                 run: |
-                    echo "{\"version\":\"${{ github.event.inputs.releaseversion }}\"}" > config.json
+                    echo "{\"version\":\"${{ github.event.inputs.releaseversion }}\"}" | jq > config.json
 
 
             -   name: Conventional Changelog Action

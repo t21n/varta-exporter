@@ -55,7 +55,7 @@ jobs:
         run: |
           BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
           BRANCH=${GITHUB_REF_NAME#v}
-          APP_VERSION=$(cat config.json | grep version| head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/ //g')
+          APP_VERSION=$(jq -r ".version"  config.json)
           echo Version: $APP_VERSION
           /bin/cat <<EOM >>$GITHUB_ENV
           VERSION=$APP_VERSION
