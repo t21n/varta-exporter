@@ -61,7 +61,7 @@ jobs:
           VERSION=$APP_VERSION
           APP_VERSION=$APP_VERSION
           BUILD_DATE=$BUILD_DATE
-          SOURCE_TAG=$SOURCE_TAG
+          BRANCH=$BRANCH
           EOM
 
       - name: Set up Docker Buildx
@@ -112,7 +112,7 @@ jobs:
           push: true
           tags: |
             ${{env.DOCKER_IMAGE_NAME}}:latest
-            ${{env.DOCKER_IMAGE_NAME}}:${{env.BRANCH}}
+            ${{env.DOCKER_IMAGE_NAME}}:${{env.APP_VERSION}}
           build-args: |
             BUILD_DATE=${{env.BUILD_DATE}}
             APP_VERSION=${{env.APP_VERSION}}
