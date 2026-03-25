@@ -47,6 +47,8 @@ jobs:
             -   name: Set release version
                 run: |
                     echo "{\"version\":\"${{ github.event.inputs.releaseversion }}\"}" | jq > config.json
+                    git add config.json
+                    git commit -m "chore: Release ${RELEASE_VERSION}"
 
 
             -   name: Conventional Changelog Action
@@ -75,3 +77,4 @@ jobs:
                 run: |
                     git tag v${{ github.event.inputs.releaseversion }}
                     git push --tags
+                    git push || true
