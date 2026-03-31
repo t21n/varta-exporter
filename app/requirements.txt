@@ -1,4 +1,4 @@
 prometheus_client==0.24.1
 PyYAML==6.0.3
-vartastorage==0.2.7
+vartastorage==0.4.3
 urllib3>=2.5.0 # not directly required, pinned by Snyk to avoid a vulnerability
